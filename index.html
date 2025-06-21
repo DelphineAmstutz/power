@@ -113,6 +113,16 @@
     <script>
         var infos;
         var items;
+
+        // Function to insert non-breaking spaces
+        function normalizeText(texte){
+            texte = texte.replaceAll(" !","&nbsp;!")
+            texte = texte.replaceAll(" ?","&nbsp;?")
+            texte = texte.replaceAll("« ","«&nbsp;")
+            texte = texte.replaceAll(" »","&nbsp;»")
+            texte = texte.replaceAll(" ;","&nbsp;;")
+            return texte;
+        }
         
         // Function to fill in the table
         function fillInTable(){
@@ -159,12 +169,12 @@
                             // Titre
                             let titre = "";
                             if(i["Wikidata édition"] != ""){
-                               titre = '<a target="_blank" href="https://wikidata.org/entity/' + i["Wikidata édition"] + '">' + i["Titre"] + '</a>';
+                               titre = '<a target="_blank" href="https://wikidata.org/entity/' + i["Wikidata édition"] + '">' + normalizeText(i["Titre"]) + '</a>';
                             } else {
                                if(i["Wikidata œuvre"] != ""){
-                                  titre = '<a target="_blank" href="https://wikidata.org/entity/' + i["Wikidata œuvre"] + '">' + i["Titre"] + '</a>';
+                                  titre = '<a target="_blank" href="https://wikidata.org/entity/' + i["Wikidata œuvre"] + '">' + normalizeText(i["Titre"]) + '</a>';
                                } else {
-                                   titre = i["Titre"];
+                                   titre = normalizeText(i["Titre"]);
                                }
                             }
                             
@@ -173,7 +183,10 @@
                             if(i["URL_texte"] != ""){
                                texte = ' (<a target="_blank" href="' + i["URL_texte"] + '">texte intégral</a>';
                                if(i["URL_texte"] != ""){
-                                  texte += " : " + i["Infos_URL_texte"];
+                                  texte += "&nbsp;: " + i["Infos_URL_texte"];
+                               }
+                               if(i["Fichier_texte"] != ""){
+                                  texte += ', <a href="' + i["Fichier_texte"] + '">T</a>'
                                }
                                texte += ')';
                             }
@@ -193,12 +206,15 @@
                 filterValues[fieldNumber] = document.querySelector("#filter" + fieldNumber).value.toLowerCase();
                 fieldNumber += 1;
             })
+
             //!!!document.querySelectorAll("table tr").forEach(row => {
             document.querySelectorAll("div.book").forEach(row => {
                 let display = true;
                 let fieldNumber = 0;
                 if (rowNumber > -1) {
                     infos["fields"].forEach(f => {
+                        console.log((items[rowNumber][f]))
+                        console.log((items[rowNumber]))
                         if ((items[rowNumber][f]).toLowerCase().indexOf(filterValues[fieldNumber]) < 0) {
                             display = false;
                         }
