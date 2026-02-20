@@ -191,7 +191,7 @@
                                texte += ')';
                             }
                             
-                            book.innerHTML = image + "<a target=\"_blank\" href=\"https://wikidata.org/entity/" + i["Wikidata auteur"] + "\">" + i["Auteur"] + "</a>, <em><strong>" + titre + "</strong></em>" + documents + ", " + i["Ville"] + ", " + i["Maison d'édition"] + ", " + i["Année"] + texte + ".";
+                            book.innerHTML = image + ("<a target=\"_blank\" href=\"https://wikidata.org/entity/" + i["Wikidata auteur"] + "\">" + i["Auteur"] + "</a>, <em><strong>" + titre + "</strong></em>" + documents + ", " + i["Ville"] + ", " + i["Maison d'édition"] + ", " + i["Année"] + texte + ".").replaceAll(", , ",", ").replaceAll(", .",".");
                             // Update the table by adding the new row
                             document.querySelector("#biblio").appendChild(book);
                         })
@@ -368,8 +368,8 @@
     <footer>
     <hr>
     <h3>À propos</h3>
-    Directrice éditoriale : <a href="https://cellf.cnrs.fr/membre/delphine-amstutz/">Delphine Amstutz</a>
-    Développement web : <a href="https://igm.univ-mlv.fr/~gambette">Philippe Gambette</a><br>
+    Directrice éditoriale : <a href="https://cellf.cnrs.fr/membre/delphine-amstutz/">Delphine Amstutz</a><br>
+    Développement web (<a href="https://github.com/DelphineAmstutz/power">code sous licence MIT</a>) : <a href="https://igm.univ-mlv.fr/~gambette">Philippe Gambette</a><br>
     Illustration : Charles-Nicolas Cochin, «&nbsp;<a href="https://gallica.bnf.fr/ark:/12148/bpt6k1516481b/f138.item">Réputation</a>&nbsp;», <em>Iconologie, ou Traité de la science des allégories</em>. Tome 4, Gallica, Bibliothèque nationale de France, RES-Z-2549.<br>
     Pour les pages de titre des ouvrages ci-dessus, les sources sont fournies dans l'infobulle de l'image et en suivant le lien attaché à l'image.
     <hr>
