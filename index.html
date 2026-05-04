@@ -180,15 +180,13 @@
                             
                             // Texte
                             let texte = "";
-                            if(i["URL_texte"] != ""){
-                               texte = ' (<a target="_blank" href="' + i["URL_texte"] + '">texte intégral</a>';
+                            if(i["Fichier_texte"] != ""){
+                               texte = '&nbsp;; <a target="_blank" href="' + i["Fichier_texte"] + '">texte intégral</a>';
                                if(i["URL_texte"] != ""){
-                                  texte += "&nbsp;: " + i["Infos_URL_texte"];
+                                  texte += ", source&nbsp;: <a href=\"" + i["URL_texte"] + "\">" + i["Infos_URL_texte"] + "</a>";
+                               } else {
+                                  texte += ", source&nbsp;: " + i["Infos_URL_texte"];
                                }
-                               if(i["Fichier_texte"] != ""){
-                                  texte += ', <a href="' + i["Fichier_texte"] + '">T</a>'
-                               }
-                               texte += ')';
                             }
                             
                             book.innerHTML = image + ("<a target=\"_blank\" href=\"https://wikidata.org/entity/" + i["Wikidata auteur"] + "\">" + i["Auteur"] + "</a>, <em><strong>" + titre + "</strong></em>" + documents + ", " + i["Ville"] + ", " + i["Maison d'édition"] + ", " + i["Année"] + texte + ".").replaceAll(", , ",", ").replaceAll(", .",".");
