@@ -7,3 +7,8 @@ https://delphineamstutz.github.io/power
 ## Ressources complémentaires
 * Delphine Amstutz, Philippe Gambette, *[Corpus POWER, une bibliothèque numérique des écrits politiques de la première modernité](https://docs.google.com/presentation/d/1FUIl33uUSIw52zqHTcNnNP-CMoAhPKp4qQ_EGDo4FKk/edit?usp=sharing)*, colloque NASSCFL 2025 (North American Society for Seventeenth-Century French Literature), Université Bretagne Sud (Lorient)
 * [Table des auteurs de l'ouvrage *La Bibliographie politique du Sr Naudé* (1642)](https://delphineamstutz.github.io/power/naude-bibliographie/)
+
+## À propos
+* Directrice éditoriale : [Delphine Amstutz](https://cellf.cnrs.fr/membre/delphine-amstutz/)
+* Développement web : [Philippe Gambette](https://igm.univ-mlv.fr/~gambette)
+* Recherche de fichiers numériques, océrisation, curation de métadonnées : Margaux Maertens
